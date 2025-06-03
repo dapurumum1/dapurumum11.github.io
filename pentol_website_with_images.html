@@ -1,0 +1,1135 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pentol Bahagia - Pentolan, Siomay & Es Tabung</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            overflow-x: hidden;
+        }
+
+        /* Smooth scrolling */
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* Header */
+        header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 1rem 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            backdrop-filter: blur(10px);
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: bold;
+            background: linear-gradient(45deg, #ff6b6b, #feca57);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            padding: 0.5rem 1rem;
+            border-radius: 25px;
+        }
+
+        .nav-links a:hover {
+            background: rgba(255,255,255,0.2);
+            transform: translateY(-2px);
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            padding: 120px 0 80px;
+            text-align: center;
+            color: white;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 100" fill="white" opacity="0.1"><polygon points="1000,100 1000,0 0,100"/></svg>');
+            background-size: cover;
+        }
+
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            animation: fadeInUp 1s ease;
+        }
+
+        .hero p {
+            font-size: 1.3rem;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+            animation: fadeInUp 1s ease 0.3s both;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background: linear-gradient(45deg, #ff6b6b, #feca57);
+            color: white;
+            padding: 15px 40px;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: bold;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 8px 25px rgba(255,107,107,0.3);
+            animation: fadeInUp 1s ease 0.6s both;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 35px rgba(255,107,107,0.4);
+        }
+
+        /* Promo Banner */
+        .promo-banner {
+            background: linear-gradient(45deg, #ff6b6b, #feca57);
+            color: white;
+            text-align: center;
+            padding: 20px 0;
+            font-weight: bold;
+            font-size: 1.2rem;
+            animation: pulse 2s infinite;
+        }
+
+        /* Menu Section */
+        .menu {
+            padding: 80px 0;
+            background: #f8f9fa;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+            background: linear-gradient(45deg, #667eea, #764ba2);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .menu-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+
+        .menu-card {
+            background: white;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .menu-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 5px;
+            background: linear-gradient(45deg, #ff6b6b, #feca57);
+        }
+
+        .menu-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+        }
+
+        .menu-image {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+
+        .menu-card:hover .menu-image {
+            transform: scale(1.05);
+        }
+
+        .menu-content {
+            padding: 2rem;
+        }
+
+        .menu-card h3 {
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+            color: #333;
+        }
+
+        .menu-card .price {
+            font-size: 2rem;
+            font-weight: bold;
+            color: #ff6b6b;
+            margin: 1rem 0;
+        }
+
+        .menu-card .description {
+            color: #666;
+            margin-bottom: 1.5rem;
+            line-height: 1.8;
+        }
+
+        .order-btn {
+            background: linear-gradient(45deg, #667eea, #764ba2);
+            color: white;
+            border: none;
+            padding: 12px 30px;
+            border-radius: 25px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            width: 100%;
+        }
+
+        .order-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(102,126,234,0.3);
+        }
+
+        /* Promo Section */
+        .promos {
+            padding: 80px 0;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+        }
+
+        .promo-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .promo-card {
+            background: rgba(255,255,255,0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 2rem;
+            text-align: center;
+            border: 1px solid rgba(255,255,255,0.2);
+            transition: all 0.3s ease;
+        }
+
+        .promo-card:hover {
+            transform: scale(1.05);
+            background: rgba(255,255,255,0.15);
+        }
+
+        .promo-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        .promo-title {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: #feca57;
+        }
+
+        /* Contact Section */
+        .contact {
+            padding: 80px 0;
+            background: #f8f9fa;
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 3rem;
+        }
+
+        .contact-info {
+            background: white;
+            padding: 2rem;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 1.5rem;
+            padding: 1rem;
+            background: #f8f9fa;
+            border-radius: 10px;
+            transition: all 0.3s ease;
+        }
+
+        .contact-item:hover {
+            background: linear-gradient(45deg, #667eea, #764ba2);
+            color: white;
+            transform: translateX(10px);
+        }
+
+        .contact-icon {
+            font-size: 1.5rem;
+            margin-right: 1rem;
+            color: #ff6b6b;
+        }
+
+        .contact-item:hover .contact-icon {
+            color: white;
+        }
+
+        /* Footer */
+        footer {
+            background: #333;
+            color: white;
+            text-align: center;
+            padding: 2rem 0;
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.02); }
+        }
+
+        /* Mobile Responsive */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+            
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .hero p {
+                font-size: 1.1rem;
+            }
+            
+            .menu-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .section-title {
+                font-size: 2rem;
+            }
+        }
+
+        /* Floating WhatsApp Button */
+        .whatsapp-float {
+            position: fixed;
+            width: 60px;
+            height: 60px;
+            bottom: 40px;
+            right: 40px;
+            background-color: #25d366;
+            color: white;
+            border-radius: 50px;
+            text-align: center;
+            font-size: 30px;
+            box-shadow: 2px 2px 3px #999;
+            z-index: 100;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+        }
+
+        .whatsapp-float:hover {
+            transform: scale(1.1);
+            box-shadow: 0 8px 25px rgba(37,211,102,0.4);
+        }
+
+        /* Loading animation for images */
+        .menu-image {
+            background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+            background-size: 200% 100%;
+            animation: loading 1.5s infinite;
+        }
+
+        @keyframes loading {
+            0% { background-position: 200% 0; }
+            100% { background-position: -200% 0; }
+        }
+
+        .menu-image.loaded {
+            animation: none;
+            background: none;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <nav>
+            <div class="logo">🍡 DOWER BANGET</div>
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#menu">Menu</a></li>
+                <li><a href="#promo">Promo</a></li>
+                <li><a href="#contact">Kontak</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <h1>🍡 JAJAN KUY....!!! 🥟</h1>
+            <p>Nikmati kelezatan Pentolan, Siomay, dan Minuman Kekinian terenak se-kota! 
+               Dibuat dengan bahan segar dan cita rasa yang tak terlupakan.</p>
+            <a href="#menu" class="cta-button">Lihat Menu Kami</a>
+        </div>
+    </section>
+
+    <!-- Promo Banner -->
+    <div class="promo-banner">
+        🎉 GRAND OPENING! Diskon 20% untuk 5 orang pembelian pertama 🎉
+    </div>
+
+    <!-- Menu Section -->
+    <section id="menu" class="menu">
+        <div class="container">
+            <h2 class="section-title">Menu Favorit Kami</h2>
+            <div class="menu-grid">
+                <div class="menu-card">
+                    <img src="012408800_1669436330-shutterstock_649624273.jpg" 
+                         alt="Pentolan Bakar Spesial" class="menu-image" loading="lazy">
+                    <div class="menu-content">
+                        <h3>🍡 Pentolan Bakar Spesial</h3>
+                        <div class="price">Rp 5.000</div>
+                        <div class="description">
+                            3 tusuk pentol bakar dengan bumbu rahasia yang gurih dan pedas manis. 
+                            Dibuat dari daging sapi pilihan dan tepung berkualitas tinggi.
+                        </div>
+                        <button class="order-btn" onclick="orderItem('Pentolan Bakar Spesial', '5000')">Pesan Sekarang</button>
+                    </div>
+                </div>
+
+                <div class="menu-card">
+                    <img src="057582100_1437494804-e9668e2c26bbefd77237ac31b4cbfce2.webp" 
+                         alt="Siomay" class="menu-image" loading="lazy">
+                    <div class="menu-content">
+                        <h3>🥟 Siomay </h3>
+                        <div class="price">Rp 5.000</div>
+                        <div class="description">
+                            4 pcs siomay ikan tenggiri segar dengan tahu, telur, dan sayuran. 
+                            Disajikan dengan bumbu kacang khas dan sambal yang menggigit.
+                        </div>
+                        <button class="order-btn" onclick="orderItem('Siomay', '5000')">Pesan Sekarang</button>
+                    </div>
+                </div>
+
+                <div class="menu-card">
+                    <img src="manisnya-peluang-usaha-minuman-kekinian-modal-kecil.png" 
+                         alt="Minuman Seger" class="menu-image" loading="lazy">
+                    <div class="menu-content">
+                        <h3>🧋 Minuman Kekinian</h3>
+                        <div class="price">Rp 10.000</div>
+                        <div class="description">
+                            Thai Tea, Brown Sugar, Taro Latte dengan topping boba kenyal. 
+                            Segar dan manis, cocok untuk cuaca panas!
+                        </div>
+                        <button class="order-btn" onclick="orderItem('Minuman', '10000')">Pesan Sekarang</button>
+                    </div>
+                </div>
+            </div>
+
+           <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Paket Hemat</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: #f8fafc;
+            color: #334155;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 2rem auto;
+            padding: 0 1rem;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .header h1 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: #1e293b;
+            margin-bottom: 0.5rem;
+        }
+
+        .header p {
+            color: #64748b;
+            font-size: 1.1rem;
+        }
+
+        .package-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .package-card {
+            background: white;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+            transition: all 0.3s ease;
+            border: 1px solid #e2e8f0;
+        }
+
+        .package-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        }
+
+        .package-header {
+            position: relative;
+            height: 200px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+
+        .package-header.paket-a {
+            background: linear-gradient(135deg, #ff6b6b 0%, #ee5a52 100%);
+        }
+
+        .package-header.paket-b {
+            background: linear-gradient(135deg, #4ecdc4 0%, #44a08d 100%);
+        }
+
+        .package-image {
+            width: 140px;
+            height: 140px;
+            border-radius: 16px;
+            object-fit: cover;
+            border: 4px solid rgba(255, 255, 255, 0.3);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+            transition: all 0.3s ease;
+        }
+
+        .package-image:hover {
+            transform: scale(1.05);
+            box-shadow: 0 12px 40px rgba(0, 0, 0, 0.4);
+        }
+
+        .food-illustration {
+            font-size: 4rem;
+            filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.2));
+        }
+
+        .image-placeholder {
+            width: 140px;
+            height: 140px;
+            border-radius: 16px;
+            background: rgba(255, 255, 255, 0.2);
+            border: 4px solid rgba(255, 255, 255, 0.3);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 4rem;
+            backdrop-filter: blur(10px);
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .image-placeholder:hover {
+            transform: scale(1.05);
+            background: rgba(255, 255, 255, 0.3);
+        }
+
+        .discount-badge {
+            position: absolute;
+            top: 16px;
+            right: 16px;
+            background: rgba(255, 255, 255, 0.95);
+            color: #dc2626;
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-size: 0.875rem;
+            font-weight: 600;
+            backdrop-filter: blur(10px);
+        }
+
+        .package-content {
+            padding: 2rem;
+        }
+
+        .package-title {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .package-title h3 {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: #1e293b;
+        }
+
+        .price-section {
+            margin-bottom: 1.5rem;
+        }
+
+        .current-price {
+            font-size: 1.75rem;
+            font-weight: 700;
+            color: #dc2626;
+            margin-right: 0.75rem;
+        }
+
+        .original-price {
+            font-size: 1.125rem;
+            color: #94a3b8;
+            text-decoration: line-through;
+        }
+
+        .savings {
+            display: inline-block;
+            background: #fef2f2;
+            color: #dc2626;
+            padding: 0.25rem 0.75rem;
+            border-radius: 12px;
+            font-size: 0.875rem;
+            font-weight: 500;
+            margin-top: 0.5rem;
+        }
+
+        .description {
+            color: #64748b;
+            margin-bottom: 2rem;
+            line-height: 1.7;
+        }
+
+        .package-features {
+            list-style: none;
+            margin-bottom: 2rem;
+        }
+
+        .package-features li {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            padding: 0.5rem 0;
+            color: #475569;
+        }
+
+        .package-features li::before {
+            content: "✓";
+            background: #10b981;
+            color: white;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.75rem;
+            font-weight: bold;
+            flex-shrink: 0;
+        }
+
+        .order-button {
+            width: 100%;
+            padding: 1rem 2rem;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border: none;
+            border-radius: 12px;
+            font-size: 1.125rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .order-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 15px -3px rgba(102, 126, 234, 0.4);
+        }
+
+        .order-button:active {
+            transform: translateY(0);
+        }
+
+        .order-button.paket-a {
+            background: linear-gradient(135deg, #ff6b6b 0%, #ee5a52 100%);
+        }
+
+        .order-button.paket-a:hover {
+            box-shadow: 0 10px 15px -3px rgba(255, 107, 107, 0.4);
+        }
+
+        .order-button.paket-b {
+            background: linear-gradient(135deg, #4ecdc4 0%, #44a08d 100%);
+        }
+
+        .order-button.paket-b:hover {
+            box-shadow: 0 10px 15px -3px rgba(78, 205, 196, 0.4);
+        }
+
+        .testimonial {
+            background: white;
+            border-radius: 16px;
+            padding: 2rem;
+            text-align: center;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+            border: 1px solid #e2e8f0;
+        }
+
+        .testimonial-text {
+            font-style: italic;
+            color: #64748b;
+            margin-bottom: 1rem;
+            font-size: 1.125rem;
+        }
+
+        .testimonial-author {
+            font-weight: 600;
+            color: #1e293b;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                margin: 1rem auto;
+                padding: 0 0.5rem;
+            }
+            
+            .header h1 {
+                font-size: 2rem;
+            }
+            
+            .package-grid {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+            
+            .package-content {
+                padding: 1.5rem;
+            }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .package-card {
+            animation: fadeInUp 0.6s ease forwards;
+        }
+
+        .package-card:nth-child(2) {
+            animation-delay: 0.2s;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>🎁 Paket Hemat</h1>
+            <p>Nikmati kelezatan dengan harga terbaik</p>
+        </div>
+
+        <div class="package-grid">
+            <!-- Paket A -->
+            <div class="package-card">
+                <div class="package-header paket-a">
+                    <!-- Ganti dengan gambar asli Anda -->
+                    <img src="c:\Users\LENOVO\OneDrive\Dokumen\1.png" 
+                         alt="Pentolan Bakar" 
+                         class="package-image"
+                         onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                    <div class="image-placeholder" style="display: none;">🍖</div>
+                    <div class="discount-badge">Hemat Rp. 2.000 !</div>
+                </div>
+                <div class="package-content">
+                    <div class="package-title">
+                        <h3>📦 Paket A - PENTOL + MINUMAN</h3>
+                    </div>
+                    
+                    <div class="price-section">
+                        <span class="current-price">Rp 13.000</span>
+                        <span class="original-price">Rp 15.000</span>
+                        <div class="savings">Hemat Rp 2.000</div>
+                    </div>
+
+                    <p class="description">
+                        Pentolan Bakar yang dipanggang sempurna dengan bumbu spesial rahasia, 
+                        disajikan dengan minuman kekinian pilihan terbaik.
+                    </p>
+
+                    <ul class="package-features">
+                        <li>Pentolan Bakar Premium</li>
+                        <li>Minuman Kekinian Pilihan</li>
+                        <li>Bumbu Spesial Rahasia</li>
+                    </ul>
+
+                    <button class="order-button paket-a" onclick="orderItem('Paket A - Pentolan Premium + Minuman', '11000')">
+                        Pesan Paket A
+                    </button>
+                </div>
+            </div>
+
+            <!-- Paket B -->
+            <div class="package-card">
+                <div class="package-header paket-b">
+                    <img src="c:\Users\LENOVO\OneDrive\Dokumen\2.png"
+                         alt="Siomay"
+                         class="package-image"
+                         onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                    <div class="image-placeholder" style="display: none;">🥟</div>
+                    <div class="discount-badge">Hemat RP. 3000 !</div>
+                </div>
+                <div class="package-content">
+                    <div class="package-title">
+                        <h3>📦 Paket B SOUMAY + MINUMAN</h3>
+                    </div>
+                    
+                    <div class="price-section">
+                        <span class="current-price">Rp 17.000</span>
+                        <span class="original-price">Rp 20.000</span>
+                        <div class="savings">Hemat Rp 3.000</div>
+                    </div>
+
+                    <p class="description">
+                        Siomay segar dengan tekstur lembut, disajikan dengan saus kacang gurih 
+                        dan minuman kekinian yang menyegarkan.
+                    </p>
+
+                    <ul class="package-features">
+                        <li>Siomay Segar Premium</li>
+                        <li>Saus Kacang Gurih</li>
+                        <li>Minuman Kekinian Pilihan</li>
+                        <li>Kombinasi Sempurna</li>
+                    </ul>
+
+                    <button class="order-button paket-b" onclick="orderItem('Paket B - Siomay Deluxe + Minuman', '14000')">
+                        Pesan Paket B
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <div class="testimonial">
+            <p class="testimonial-text">
+                "Paket hemat yang benar-benar menguntungkan! Rasanya enak dan harganya sangat terjangkau."
+            </p>
+            <p class="testimonial-author">- Pelanggan Setia</p>
+        </div>
+
+    <!-- Promo Section -->
+    <section id="promo" class="promos">
+        <div class="container">
+            <h2 class="section-title" style="color: white;">Promo Menarik</h2>
+            <div class="promo-grid">
+                <div class="promo-card">
+                    <div class="promo-icon">🎉</div>
+                    <div class="promo-title">Grand Opening</div>
+                    <p>Diskon 20% untuk pembelian pertama</p>
+                </div>
+
+                <div class="promo-card">
+                    <div class="promo-icon">🎁</div>
+                    <div class="promo-title">Beli 5 Gratis 1</div>
+                    <p>Khusus minuman kekinian! Beli 5 gelas dapat 1 gelas gratis.</p>
+                </div>
+
+                <div class="promo-card">
+                    <div class="promo-icon">⏰</div>
+                    <div class="promo-title">Happy Hour</div>
+                    <p>Diskon 15% setiap hari pukul 14:00 - 16:00 untuk semua menu!</p>
+                </div>
+
+                <div class="promo-card">
+                    <div class="promo-icon">👥</div>
+                    <div class="promo-title">Langganan Mingguan</div>
+                    <p>Pesan untuk seminggu sekaligus, dapatkan diskon 10% !</p>
+                </div>
+
+                <div class="promo-card">
+                    <div class="promo-icon">💰</div>
+                    <div class="promo-title">Cashback 50%</div>
+                    <p>Untuk pembelian di atas Rp 50.000, dapatkan cashback 10% maksimal Rp 10.000!</p>
+                </div>
+
+                <div class="promo-card">
+                    <div class="promo-icon">🏆</div>
+                    <div class="promo-title">Member VIP</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+        <div class="container">
+            <h2 class="section-title">Hubungi Kami</h2>
+            <div class="contact-grid">
+                <div class="contact-info">
+                    <h3 style="margin-bottom: 2rem; color: #333;">Info Kontak</h3>
+                    <div class="contact-item">
+                        <div class="contact-icon">📱</div>
+                        <div>
+                            <strong>WhatsApp</strong><br>
+                            +62 852-4381-0251
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon">📍</div>
+                        <div>
+                            <strong>Lokasi</strong><br>
+                            RUKO PANJANG ORANGE, SESUDAH JL. PARIWISATA, KAB AIMAS UNIT 2
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon">⏰</div>
+                        <div>
+                            <strong>Jam Buka</strong><br>
+                            Senin - Minggu: 09:00 - 21:00
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon">🚚</div>
+                        <div>
+                            <strong>Delivery</strong><br>
+                            Gratis ongkir min 3 orderan
+                        </div>
+                    </div>
+                </div>
+
+                <div class="contact-info">
+                    <h3 style="margin-bottom: 2rem; color: #333;">Media Sosial</h3>
+                    <div class="contact-item">
+                        <div class="contact-icon">📘</div>
+                        <div>
+                            <strong>Facebook</strong><br>
+                            @PentolBahagiaOfficial
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon">📷</div>
+                        <div>
+                            <strong>Instagram</strong><br>
+                            @pentol.bahagia
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon">🎵</div>
+                        <div>
+                            <strong>TikTok</strong><br>
+                            @pentolbahagia_official
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon">✉️</div>
+                        <div>
+                            <strong>Email</strong><br>
+                            pentolbahagia@gmail.com
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+       <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 Pentol Bahagia. Dibuat dengan ❤️ untuk pelanggan terbaik kami!</p>
+        </div>
+    </footer>
+
+    <!-- Floating WhatsApp Button -->
+    <a href="https://wa.me/6285243810251?text=Halo,%20saya%20ingin%20memesan%20makanan" class="whatsapp-float" target="_blank">
+        💬
+    </a>
+
+    <script>
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Function to handle orders
+        function orderItem(itemName, price) {
+            const message = `Halo! Saya ingin memesan ${itemName} seharga Rp ${price}. Mohon info lebih lanjut ya! 😊`;
+            const whatsappUrl = `https://wa.me/6285243810251?text=${encodeURIComponent(message)}`;
+            window.open(whatsappUrl, '_blank');
+        }
+
+        // Add animation on scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.animation = 'fadeInUp 0.6s ease forwards';
+                }
+            });
+        }, observerOptions);
+
+        // Observe all menu cards and promo cards
+        document.querySelectorAll('.menu-card, .promo-card').forEach(card => {
+            observer.observe(card);
+        });
+
+        // Header background change on scroll
+        window.addEventListener('scroll', () => {
+            const header = document.querySelector('header');
+            if (window.scrollY > 100) {
+                header.style.background = 'rgba(102, 126, 234, 0.95)';
+                header.style.backdropFilter = 'blur(15px)';
+            } else {
+                header.style.background = 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)';
+                header.style.backdropFilter = 'blur(10px)';
+            }
+        });
+
+        // Add click animation to buttons
+        document.querySelectorAll('.order-btn, .cta-button').forEach(button => {
+            button.addEventListener('click', function(e) {
+                const ripple = document.createElement('span');
+                const rect = this.getBoundingClientRect();
+                const size = Math.max(rect.width, rect.height);
+                const x = e.clientX - rect.left - size / 2;
+                const y = e.clientY - rect.top - size / 2;
+                
+                ripple.style.width = ripple.style.height = size + 'px';
+                ripple.style.left = x + 'px';
+                ripple.style.top = y + 'px';
+                ripple.style.position = 'absolute';
+                ripple.style.borderRadius = '50%';
+                ripple.style.background = 'rgba(255,255,255,0.5)';
+                ripple.style.transform = 'scale(0)';
+                ripple.style.animation = 'ripple 0.6s linear';
+                ripple.style.pointerEvents = 'none';
+                
+                this.appendChild(ripple);
+                
+                setTimeout(() => {
+                    ripple.remove();
+                }, 600);
+            });
+        });
+
+        // Add CSS for ripple animation
+        const style = document.createElement('style');
+        style.textContent = `
+            @keyframes ripple {
+                to {
+                    transform: scale(4);
+                    opacity: 0;
+                }
+            }
+            .order-btn, .cta-button {
+                position: relative;
+                overflow: hidden;
+            }
+        `;
+        document.head.appendChild(style);
+    </script>
+</body>
+</html>
